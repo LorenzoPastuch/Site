@@ -53,6 +53,7 @@ class Infos(models.Model):
     nome = models.ForeignKey("MeusDados", related_name='info', on_delete=models.CASCADE)
     info = models.CharField(max_length=50)
     descricao = models.TextField(max_length=10000)
+    nivel = models.DecimalField(max_digits=4, decimal_places=2, default=10)
 
     def __str__(self):
         return self.info

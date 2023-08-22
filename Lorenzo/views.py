@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import MinhaHistoria, MeusDados, MeuPortifolio, Cursos, Formacao, Infos, Experiencias
+from .models import MinhaHistoria, MeusDados, MeuPortifolio, Cursos, Formacao, Experiencias, Infos
 from django.views.generic import TemplateView, ListView, DetailView
 from datetime import datetime
 # Create your views here.
@@ -31,6 +31,17 @@ class Meusdados(DetailView):
     template_name = 'meusdados.html'
     model = MeusDados
     context_object_name = 'meusdados'
+
+    def get_context_data(self, **kwargs):
+        context = super(Meusdados, self).get_context_data(**kwargs)
+        informacoes = Infos.objects.filter(nome=self.object)
+
+        niveis = [info.nivel for info in informacoes]
+        infos = [info.info for info in informacoes]
+
+        context['niveis'] = niveis
+        context['infos'] = infos
+        return context
 
 class Meuportifolio(ListView):
     template_name = 'meuportifolio.html'
