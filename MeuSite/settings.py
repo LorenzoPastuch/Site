@@ -31,7 +31,9 @@ SECRET_KEY = 'django-insecure-^2i--y2+*vjj&gq7u@_%+=78!0(**y(fozex!$b+uf3poe(9q)
 DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1',
-                 'lorenzopastuch.pythonanywhere.com']
+                 'lorenzopastuch.pythonanywhere.com',
+                 'lorenzopastuch.onrender.com',
+                 ]
 
 
 # Application definition
@@ -151,9 +153,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #   AWS programatic access
 
-AWS_ACESS_KEY_ID = "AKIAUWFEN6G6JVWSNKM5"
+AWS_ACCESS_KEY_ID = "AKIAUWFEN6G6JVWSNKM5"
 
-AWS_SECRET_ACESS_KEY = "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"
+AWS_SECRET_ACCESS_KEY = "rWozGkJAU2dLAnwgxUcris4FsixYtPuXfmw/AnQ+"
 
 AWS_STORAGE_BUCKET_NAME = "mybucket-lorenzopastuch"
 

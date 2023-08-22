@@ -19,8 +19,8 @@ class MeuPortifolio(models.Model):
     projeto = models.CharField(max_length=50)
     descricao_projeto = models.TextField(max_length=10000)
     data_criacao = models.DateTimeField(default=timezone.now)
-    download = models.FileField(upload_to='projetos')
-    imagem = models.ImageField(upload_to='imagens')
+    download = models.FileField(upload_to='media/projetos')
+    imagem = models.ImageField(upload_to='media/imagens')
 
     def __str__(self):
         return self.projeto
@@ -42,7 +42,7 @@ class Experiencias(models.Model):
         return self.experiencia
 
 class Cursos(models.Model):
-    nome = models.ForeignKey("MeusDados", related_name='curso',on_delete=models.CASCADE)
+    nome = models.ForeignKey("MeusDados", related_name='curso', on_delete=models.CASCADE)
     curso = models.CharField(max_length=50)
     descricao = models.TextField(max_length=10000)
 
@@ -50,7 +50,7 @@ class Cursos(models.Model):
         return self.curso
 
 class Infos(models.Model):
-    nome = models.ForeignKey("MeusDados", related_name='info',on_delete=models.CASCADE)
+    nome = models.ForeignKey("MeusDados", related_name='info', on_delete=models.CASCADE)
     info = models.CharField(max_length=50)
     descricao = models.TextField(max_length=10000)
 
@@ -58,6 +58,6 @@ class Infos(models.Model):
         return self.info
 
 class MinhaHistoria(models.Model):
-    nome = models.ForeignKey("MeusDados", related_name='minhahistoria',on_delete=models.CASCADE)
+    nome = models.ForeignKey("MeusDados", related_name='minhahistoria', on_delete=models.CASCADE)
     historia = models.TextField(max_length=1000)
     data_atualizacao = models.DateTimeField(default=timezone.now)
