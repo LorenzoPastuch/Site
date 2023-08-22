@@ -153,9 +153,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #   AWS programatic access
 
-AWS_ACCESS_KEY_ID = "AKIAUWFEN6G6JVWSNKM5"
+AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
 
-AWS_SECRET_ACCESS_KEY = "rWozGkJAU2dLAnwgxUcris4FsixYtPuXfmw/AnQ+"
+AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
 
 AWS_STORAGE_BUCKET_NAME = "mybucket-lorenzopastuch"
 
