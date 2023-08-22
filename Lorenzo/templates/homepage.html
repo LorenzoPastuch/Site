@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+{%load static %}
+
+{% block titulo %}
+Quem sou eu
+{% endblock %}
+
+{% block content %}
+    <header class="min-h-screen  flex justify-center items-center bg-cover" style="background-image: url('{% static 'images/background.png' %}')">
+        <div class="text-center flex items-center flex-col ">
+            <h1 class="text-6xl pt-5 text-white" style="font-family: 'Azonix', sans-serif;">
+                    Lorenzo Pastuch
+            </h1>
+            <div class="flex justify-center pb-7 ">
+                <img class="w-6/12" src="{% static 'images/eu.png' %}">
+            </div>
+        </div>
+    </header>
+    <section class="flex-col flex-nowrap bg-purple-900 py-20 text-violet-700 text-2xl text-center bg-opacity-50">
+        <h1 class="text-violet-500 max-w-lg mx-auto text-4xl py-10" style="font-family: 'Azonix', sans-serif;">
+            Quem sou eu?
+        </h1>
+        <h2 class=" text-white max-w-lg mx-auto font-semibold text-2xl pb-10">
+            Meu nome é Lorenzo Lopes Pastuch. Tenho {{ idade }} anos e sou natural de Arapongas-PR,
+            mas moro atualmente em São José dos Pinhais-PR.
+            Sou formado em Engenharia Química pela Universidade Estadual de Maringá e
+            estudo programação em Python a {{ meses_passados }} meses.
+            Pretendo aprofundar cada vez mais meus conhecimentos e estou aberto a trabalhar nas mais diversas áreas da programação.
+        </h2>
+    </section>
+
+{% endblock %}

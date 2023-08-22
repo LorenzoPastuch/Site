@@ -1,0 +1,63 @@
+{% load static %}
+
+<nav class="w-full flex justify-between items-center py-3 px-4 fixed z-50 bg-black " style="font-family: 'Azonix', sans-serif;" >
+    <div class="w-7/12">
+       <a href="{% url 'lorenzo:homepage' %}">
+           <img class="w-2/12 " src="{% static 'images/logo.png' %}">
+       </a>
+    </div>
+
+    <div class="w-8/12 flex flex-nowrap justify-end">
+        <div class="mr-10 bg-black rounded-md px-2 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+            <a href="{% url 'lorenzo:minhahistoria' 1 %}"
+               <span class="text-xl text-white">
+                   Minha história
+               </span>
+            <a/>
+        </div>
+        <div class="mr-10 bg-black rounded-md px-2 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+            <a href="{% url 'lorenzo:meusdados' 1 %}"
+               <span class="text-xl text-white">
+                   Meus dados
+               </span>
+            <a/>
+        </div>
+        <div class="mr-10 bg-black rounded-md px-2 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+            <a href="{% url 'lorenzo:meuportifolio' %}"
+               <span class="text-xl text-white">
+                   Meu portifólio
+               </span>
+            <a/>
+        </div>
+        <div class="mr-10 bg-black rounded-md px-2 text-xl text-white transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+            <button id="btnScrollDown">
+                Contato
+            </button>
+        </div>
+    </div>
+
+</nav>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var btnScrollDown = document.getElementById("btnScrollDown");
+
+  btnScrollDown.addEventListener("click", function() {
+    var currentPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    var targetPosition = document.body.scrollHeight;
+
+    var animationInterval = 10; // O intervalo de tempo entre cada quadro da animação (em milissegundos)
+    var scrollDistance = (targetPosition - currentPosition) / (1000 / animationInterval); // A distância a ser percorrida a cada quadro
+
+    var scrollInterval = setInterval(function() {
+      var newPosition = Math.min(currentPosition + scrollDistance, targetPosition);
+      window.scrollTo(0, newPosition);
+      currentPosition = newPosition;
+
+      if (currentPosition >= targetPosition) {
+        clearInterval(scrollInterval);
+      }
+    }, animationInterval);
+  });
+});
+</script>

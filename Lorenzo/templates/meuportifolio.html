@@ -1,0 +1,41 @@
+{% extends 'base.html'%}
+{%load static %}
+
+{% block titulo %}
+Portifólio
+{% endblock %}
+
+{% block content %}
+
+<header class=" flex justify-center items-center">
+    <div class="text-center flex items-center flex-col">
+        <h1 class="text-violet-700 font-semibold text-8xl py-20 mt-20" style="font-family: 'Azonix', sans-serif;" >
+        Meu portifólio
+        </h1>
+    </div>
+</header>
+{% for projeto in meuportifolio %}
+    <section class="flex flex-row items-center bg-purple-900 scale-100 bg-opacity-75 border-b-2 border-black">
+        <div class="flex flex-col justify-items-start">
+            <h2 class="text-violet-700 text-4xl py-10 text-center" style="font-family: 'Azonix', sans-serif;">
+                {{ projeto.projeto }}
+
+            </h2>
+            <h3 class="text-2xl text-white break-normal pl-28 w-5/12">
+                {{ projeto.descricao_projeto }}
+            </h3>
+            <div class=" text-xl text-center text-indigo-500 py-10 ">
+                <a class="transition duration-500 ease-in-out transform hover:text-indigo-300" href="{{ projeto.download.url }}">
+                    Download: {{ projeto.projeto }}.rar
+                </a>
+            </div>
+
+        </div>
+        <div class="flex justify-end pr-28">
+            <img class="max-w-md" src="{{ projeto.imagem.url }}">
+        </div>
+    </section>
+{% endfor %}
+
+
+{% endblock %}
