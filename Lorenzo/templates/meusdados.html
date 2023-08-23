@@ -87,22 +87,23 @@ Meus dados
         {% endfor %}
     </h5>
 </section>
-<section class="flex-col items-center bg-purple-900 py-8 pl-28 text-white text-2xl bg-opacity-75">
-    <h5 class="px-3">
+<section class="flex-col items-center bg-purple-900 text-white text-2xl bg-opacity-75">
+    <h5 class="pt-8 pl-28">
         Softwares e Idiomas:
     </h5>
-    <div class="mx-auto w-4/12 ">
-        <canvas id="radar-chart"></canvas>
+    <div>
+        <script type="text/javascript" src="{% static 'js/radar.js' %}"></script>
+        <div class="mx-auto max-w-2xl">
+            <canvas id="radar-chart"></canvas>
+        </div>
+        <script>
+
+            const labelsFromDjango = {{ infos|safe }};
+            const dataFromDjango = [{{ niveis|join:', ' }}];
+
+            createRadarChart(labelsFromDjango, dataFromDjango);
+        </script>
     </div>
-    <script type="text/javascript" src="{% static 'js/radar.js' %}"></script>
-    <script>
-
-        const labelsFromDjango = {{ infos|safe }};
-        const dataFromDjango = [{{ niveis|join:', ' }}];
-
-        createRadarChart(labelsFromDjango, dataFromDjango);
-    </script>
-
 </section>
 
 {% endblock %}
