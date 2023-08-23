@@ -26,6 +26,7 @@ class Homepage(TemplateView):
 class Minhahistoria(DetailView):
     template_name = 'minhahistoria.html'
     model = MinhaHistoria
+    context_object_name = 'minhahistoria'
 
 class Meusdados(DetailView):
     template_name = 'meusdados.html'

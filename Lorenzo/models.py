@@ -19,7 +19,7 @@ class MeuPortifolio(models.Model):
     projeto = models.CharField(max_length=50)
     descricao_projeto = models.TextField(max_length=10000)
     data_criacao = models.DateTimeField(default=timezone.now)
-    download = models.FileField(upload_to='media/projetos')
+    link = models.CharField(max_length=100)
     imagem = models.ImageField(upload_to='media/imagens')
 
     def __str__(self):
