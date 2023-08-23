@@ -91,21 +91,18 @@ Meus dados
     <h5 class="px-3">
         Softwares e Idiomas:
     </h5>
-    <div class="mx-auto w-4/12 overflow-hidden pt-3">
-      <canvas
-        data-te-chart="radar"
-        data-te-dataset-label="Nível de conhecimento"
-        data-te-labels="{{ infos }}"
-        data-te-dataset-data="[{{ niveis|join:', ' }}]"
-        data-te-pointBorderWidth="2"
-        backgroundColor="black"
-        >
-      </canvas>
-    </div>
-    <div class="mx-auto w-3/5 overflow-hidden">
+    <div class="mx-auto w-4/12 ">
         <canvas id="radar-chart"></canvas>
     </div>
-<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/radar.js' %}"></script>
+    <script>
+
+        const labelsFromDjango = {{ infos|safe }};
+        const dataFromDjango = [{{ niveis|join:', ' }}];
+
+        createRadarChart(labelsFromDjango, dataFromDjango);
+    </script>
+
 </section>
 
 {% endblock %}

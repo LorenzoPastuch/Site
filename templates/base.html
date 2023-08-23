@@ -1,6 +1,5 @@
 {% load static %}
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,20 +7,14 @@
     <link rel="icon" href="{% static 'images/logo32.png' %}" type="image/x-icon">
     <link rel="shortcut icon" href="{% static 'images/logo32.png' %}" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.tailwindcss.com/3.3.0"></script>
-    <title>
-        {% block titulo %}
-        {% endblock %}
-    </title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.cdnfonts.com/css/azonix" rel="stylesheet">
 </head>
 <body class=" min-h-screen bg-center bg-cover bg-fixed font-primary" style="background-image: url('{% static 'images/background.png' %}')">
     {% include 'navbar.html' %}
     {% block content %}
     {% endblock %}
     {% include 'footer.html' %}
+
 </body>
 </html>
